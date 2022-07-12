@@ -1,0 +1,75 @@
+[version=100, target=main]
+50F928 BL hakoniwaSequenceHook
+4C8648: // hook to the init of a stage to modify certain conditions (we also have access to SceneInitInfo)
+    BL stageInitHook
+4CC780 BL sceneKillHook
+// 0041b384:
+//     BL initActorWithArchiveNameHook // Scene init hook for actor creation
+
+// hooks to start old crafty logger
+// 5359D8: // GameSystem::init 
+    // BL tryInitSocket
+B59E28: // sead::system::print
+    B seadPrintHook
+5359DC:
+    MOV X0, X19 // move GameSystem to arg register
+    BL setupDebugMenu
+    
+50F258: // HakoniwaSequence::drawMain+80
+   MOV X0, X19 // HakoniwaSequence
+   MOV X1, SP // viewport
+   MOV X2, X20 // drawContext
+   BL drawMainHook
+
+//50E89C:
+//    BL threadInit
+
+//4C8958:
+//    BL initDebugListHook
+
+1B3F0C: // disables call to open HTML viewer during first time odyssey flight
+    NOP
+
+1F2A2C: // patches checkpoint system to always allow warping
+    MOV W0, #1
+
+4B5E30: // patches actor factory ctor with custom matching factory
+    B ProjectActorFactory
+
+// 4CA1E4: // disables the OpeningStage cutscene from happening
+    // MOV X0, #0
+    
+// 3A85F8: // stops OpeningStageCapManHero from full init
+   // MOV X0, #1
+
+// Amiibo Button Disabling
+577078: // rs::isHoldAmiiboMode
+    MOV X0, #0
+    RET
+577018: // rs::isTriggerAmiiboMode
+    MOV X0, #0
+    RET
+
+// Snapshot Button Disabling
+// 576FB8: // rs::isTriggerSnapShotMode
+    // MOV X0, #0
+    // RET
+
+// 0041e764: //Fixes Mario posing when gravity is changed
+    // NOP
+
+// Costume Setup
+// 54C498: // rs::isHaveCloth
+    // MOV W0, #1
+    // RET
+// 54C4A4: // rs::isHaveCap
+    // MOV W0, #1
+    // RET
+
+// Timewarp hooks
+
+9D0EB4 RET // Allows snapshot filters to be used during gameplay
+85C710 B triggerR
+
+4855fc B reduceOxygenForce // Forces ring to appear even if not in water
+45ec88 B oxygenReduce // Updates the oxygen and draws timewarp recharge into ring

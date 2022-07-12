@@ -1,0 +1,19 @@
+{
+    global:
+        _Z14stageSceneHookv;
+        _Z14setupDebugMenuP10GameSystem;
+        _Z12drawMainHookP16HakoniwaSequencePN4sead8ViewportEPNS1_11DrawContextE;
+        _Z13seadPrintHookPKcz;
+        _Z10threadInitv;
+        _Z13stageInitHookP10StageScenePN2al13SceneInitInfoE;
+        _Z13tryInitSocketv;
+        _Z13seadPrintHookPKcz;
+        _Z10threadInitv;
+        _Z12fileReadHookPN4sead11ResourceMgrERKNS0_7LoadArgERKNS_14SafeStringBaseIcEEPNS_12DecompressorE;
+        _Z17initDebugListHookPKN2al5SceneE;
+        _ZN19ProjectActorFactoryC2Ev;
+        _Z14snapEnableHookPKN2al11CameraPoserE;
+        _Z13snapSpeedHookPN4sead7Vector3IfEERKS1_S4_f;
+        _Z14stickInverHooki;
+    local: *;
+};
