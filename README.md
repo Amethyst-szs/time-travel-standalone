@@ -6,7 +6,7 @@ This repo contains a modification built for Super Mario Odyssey Online allowing 
 If you don't want to compile from source, check Gamebanana for the public download  
 Download Link will be added shortly
 
-## Supported Versions
+## Supported SMO Versions
 - 1.0.0
 
 ## Prerequisites
