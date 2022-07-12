@@ -243,6 +243,12 @@ void TimeContainer::endRewind(PlayerActorHakoniwa* p1)
         p1->mHackCap->forcePutOn();
         p1->mHackCap->hidePuppetCap();
     }
+
+    if(GameDataFunction::isEnableCap(stageSceneRef)){
+        if(p1->mHackCap){
+            p1->mHackCap->mCapActionHistory->mIsCapJumpReady = false;
+        }
+    }
     
     isRewinding = false;
     resetCooldown();
