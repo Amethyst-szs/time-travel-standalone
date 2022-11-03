@@ -18,7 +18,6 @@
 .vscode/
 .cache/
 build*/
-debug/
 release/
 lib/
 linkerscripts/symstemp.ld
